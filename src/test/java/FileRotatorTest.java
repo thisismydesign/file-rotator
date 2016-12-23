@@ -1,3 +1,4 @@
+import com.thisismydesign.filerotator.FileRotator;
 import org.junit.Test;
 
 import java.io.File;
