@@ -23,8 +23,8 @@ public class FileRotator {
         this.path = dir.getCanonicalPath();
     }
 
-    public File getFile(LocalDateTime exportInitiated) throws IOException {
-        return new File(getFilePath(exportInitiated));
+    public File getFile(LocalDateTime timestamp) throws IOException {
+        return new File(getFilePath(timestamp));
     }
 
     public boolean deleteAllExcept(File keep) {
@@ -41,8 +41,8 @@ public class FileRotator {
                 new File(path + "/" + name).isFile()));
     }
 
-    private String getFilePath(LocalDateTime timeStamp) {
-        return String.format("%s/%s%s%s", path, prefix, timeStamp.format(dateFormat), suffix);
+    private String getFilePath(LocalDateTime timestamp) {
+        return String.format("%s/%s%s%s", path, prefix, timestamp.format(dateFormat), suffix);
     }
 
     private String getPattern() {
